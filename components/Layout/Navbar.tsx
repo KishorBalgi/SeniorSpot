@@ -56,6 +56,10 @@ const Navbar = () => {
                           ? "text-primary font-semibold"
                           : ""
                       }`}
+                      onClick={() => {
+                        // Uncheck nav-check
+                        document.getElementById("nav-check")?.click();
+                      }}
                     >
                       <Link className="" href={`${items.link}`}>
                         {items.name}
