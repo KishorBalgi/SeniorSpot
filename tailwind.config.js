@@ -11,14 +11,15 @@ module.exports = {
     extend: {
       colors: {
         white: "#ffffff",
-        black: "#292021",
+        black: "#000000",
         blackLight: "#333333",
-        primary: "#886750",
+        primary: "#2A86DB",
         secondary: "#CAB08F",
         darkGrey: "#939393",
         lightBrown: "#F5EADB",
         greyishBrown: "#E1D9CE",
         offWhite: "#FAFAFA",
+        footer: "#1E2F3F"
       },
       gridTemplateColumns: {
         "image-gallery-4": "160px repeat(3 , 1fr)",

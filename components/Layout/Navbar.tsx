@@ -30,20 +30,14 @@ const Navbar = () => {
   const [userSettingDropdown, setUserSettingDropdown] = useState(false);
   return (
     <div
-      className={`sticky top-0 left-0 z-20 w-full h-auto bg-white ${
+      className={`sticky top-0 left-0 z-20 w-full h-auto shadow-md s bg-white ${
         isLogin || isAdmin ? "shadow-md" : ""
       } `}
     >
       <div className="flex items-center justify-between max-w-full py-[13px] mx-auto px-5 lg:px-[50px] ">
         <div className="flex gap-[50px]">
-          <Link className="flex items-center" href="/">
-            <Image className="w-[45px]" src={logoLionImage} alt="" />
-            <Image
-              className="w-auto h-full pl-2 max-h-3"
-              src={logoText}
-              alt=""
-            />
-            {/* {logoText} */}
+          <Link className="flex items-center text-gray-600" href="/">
+            <Image className="w-[80px]" src={logoLionImage} alt="" />
           </Link>
           <input type="checkbox" className="hidden peer" id="nav-check" />
           {!isLogin && (
@@ -57,11 +51,15 @@ const Navbar = () => {
                   return (
                     <li
                       key={index}
-                      className={`lg:mr-[20px] mb-5 lg:mb-0 max-lg:text-2xl lg:text-sm xl:mr-[50px] xl:text-base text-black max-lg:leading-[] ${
+                      className={`lg:mr-[20px] mb-5 lg:mb-0 max-lg:text-2xl lg:text-sm xl:mr-10 xl:text-base text-black max-lg:leading-[] ${
                         items.link === router
-                          ? "underline underline-offset-8"
+                          ? "text-primary font-semibold"
                           : ""
                       }`}
+                      onClick={() => {
+                        // Uncheck nav-check
+                        document.getElementById("nav-check")?.click();
+                      }}
                     >
                       <Link className="" href={`${items.link}`}>
                         {items.name}
@@ -96,12 +94,12 @@ const Navbar = () => {
               className="flex items-center max-lg:hidden"
               onClick={() => setUserSettingDropdown(!userSettingDropdown)}
             >
-              <Image className="w-[44px] h-[44px]" src={profileImage} alt="" />
-              <span className="pl-2 text-base font-normal">Trophy</span>
+              {/* <Image className="w-[44px] h-[44px]" src={} alt="" /> */}
+              <span className="pl-2 text-base font-normal">Mohan Kamat</span>
               <Image className="w-[20px] pl-2" src={arrowDown} alt="" />
             </div>
             {userSettingDropdown && (
-              <div className="p-4 rounded grid grid-cols-2 bg-white mt-4 absolute z-[1] bg-white w-full top-[100%]">
+              <div className="p-4 rounded grid grid-cols-2 mt-4 absolute z-[1] bg-white w-full top-[100%]">
                 <ul>
                   <li className="my-2 text-base">
                     <Link href="/admin/setting">Setting</Link>
@@ -119,13 +117,16 @@ const Navbar = () => {
               href={"/signup"}
               className="lg:text-sm laptopScreen:text-base"
             >
-              Create an Account
+              Business Owner?{" "}
+              <span className="text-primary cursor-pointer font-medium">
+                Join Us
+              </span>
             </Link>
             <Link
-              className={`bg-blackLight rounded-[8px] px-[31px] py-2  laptopScreen:text-base text-white`}
+              className={`bg-primary rounded-[8px] px-[31px] py-2  laptopScreen:text-base text-white`}
               href={"/login"}
             >
-              Sign In
+              Sign Up
             </Link>
             {/* <Button /> */}
           </div>

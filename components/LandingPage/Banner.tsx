@@ -1,25 +1,31 @@
 import React from "react";
 import Link from "next/link";
 import { josefin } from "../../utils/utilsFonts";
-import Button from "../Common/Button";
+import Image from "next/image";
+import home_banner from "../../images/home_banner.png";
 
 const Banner = () => {
   return (
-    <div className="bg-banner-image h-[640px] bg-no-repeat bg-right rounded-[16px] relative bg-cover overflow-hidden max-md:h-[730px]">
-      <div className="absolute top-0 left-0 w-full h-full bg-cover bg-banner-overlay"></div>
-      <div className="absolute text-white max-w-[586px] top-[50%] left-[75px] -translate-y-1/2 max-md:left-5 max-md:pr-5">
-        <h1 className={`text-[64px] leading-[64px] ${josefin.className}`}>
-          Short-term
+    <div className="grid lg:grid-cols-2 grid-cols-1 content-center items-center h-fit my-20">
+      <div className="flex flex-col justify-center text-black md:px-10 lg:order-1 order-2">
+        <h1
+          className={`md:text-[45px] text-[30px] font-semibold md:leading-[64px]  ${josefin.className}`}
+        >
+          Empowering Seniors: Find Nearby Services with Ease!
         </h1>
-        <h4 className={`text-4xl mb-6 ${josefin.className}`}>
-          Properties Designed For Comfort.
-        </h4>
-        <p className="text-lg mb-[30px]">
-          Each home in our collection is selected and designed to our standard
-          of excellence. You deserve a love-at-first-sight home, ideal for
-          living, working or relaxing.
+        <p className="text-lg mb-[18px] text-justify">
+          Discover personalized and reliable solutions for a vibrant and
+          fulfilling senior lifestyle. Your gateway to a life enriched with
+          convenience and care.
         </p>
-        <Button ButtonText="Contact Us" ButtonClasses="text-white w-max" />
+      </div>
+      {/* Center the image in its column */}
+      <div className="flex justify-center lg:order-2 order-1">
+        <Image
+          src={home_banner}
+          className="rounded-lg h-auto lg:w-7/12 md:w-11/12 object-contain mb-10 shadow-2xl "
+          alt="arrow"
+        />
       </div>
     </div>
   );
